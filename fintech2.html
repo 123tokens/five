@@ -72,9 +72,7 @@
             font-size: 11px; font-weight: 600; text-transform: uppercase;
             margin-top: 8px; margin-right: 4px;
         }
-        .image-block {
-            max-width: 900px; margin: 30px auto; text-align: center;
-        }
+        .image-block { max-width: 900px; margin: 30px auto; text-align: center; }
         .image-block img {
             max-width: 100%; border-radius: 20px;
             border: 1px solid #1E2350;
@@ -90,6 +88,15 @@
         .contract-box .copy-btn:hover { color: #FFD700; }
         .contract-box .solscan-link { color: #5A649A; text-decoration: none; font-size: 13px; font-family: 'Segoe UI', sans-serif; margin-left: 8px; }
         .contract-box .solscan-link:hover { color: #fff; }
+        .counter-box {
+            text-align: center; padding: 16px;
+            background: rgba(220,38,38,0.05); border-radius: 12px;
+            margin: 20px 0; font-size: 14px; color: #8A94C8;
+            font-family: 'Courier New', monospace;
+        }
+        .counter-box .counter-visitors { color: #FCD34D; font-weight: 600; }
+        .counter-box .counter-holders { color: #DC2626; font-weight: 600; }
+        .counter-box .counter-clients { color: #006C35; font-weight: 600; }
         .back-link { display: inline-block; margin-top: 16px; color: #FCD34D; text-decoration: none; font-weight: 500; }
         .back-link:hover { text-decoration: underline; }
         footer {
@@ -137,7 +144,6 @@
             <p>¥FIVE is the gateway to institutional-grade DeFi, RWA tokenization, and the Financial Reference System for CNY.</p>
         </div>
 
-        <!-- RWA диаграмма -->
         <div class="image-block">
             <img src="five_rwa_diagram.png" alt="¥FIVE RWA Diagram" />
         </div>
@@ -200,6 +206,14 @@
             <a href="fintech1.html" class="btn-secondary">← Back to Use Cases</a>
         </div>
 
+        <div class="counter-box">
+            👥 <span class="counter-visitors">137,000</span> visitors
+            &nbsp;·&nbsp;
+            💎 <span class="counter-holders">0</span> holders
+            &nbsp;·&nbsp;
+            🤝 <span class="counter-clients">0</span> clients
+        </div>
+
         <div class="contract-box">
             📜 ¥FIVE Contract: <span class="addr">45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</span>
             <button onclick="navigator.clipboard.writeText('45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u')" class="copy-btn">📋 Copy</button>
@@ -215,6 +229,8 @@
         <p>© 2026 One•Two•Three. Built on Solana. | Contract: 45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</p>
     </div>
 </footer>
+
+<script src="counter.js"></script>
 
 </body>
 </html>
