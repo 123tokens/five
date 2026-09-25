@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>¥FIVE — Ecosystem</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0A0E27; color: #E0E6FF;
+            line-height: 1.6; padding-top: 80px; padding-bottom: 60px;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .glass-card {
+            background: rgba(26, 30, 65, 0.6); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 24px;
+            padding: 40px; margin-bottom: 24px;
+        }
+        .glass-card h1 { font-size: 32px; margin-bottom: 8px; }
+        .glass-card h1 .highlight { color: #FCD34D; }
+        .glass-card .sub { color: #8A94C8; margin-bottom: 24px; }
+        .token-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 20px 0; }
+        .token-card {
+            background: rgba(26,30,65,0.3); border: 1px solid #1E2350;
+            border-radius: 16px; padding: 16px 12px; text-align: center;
+        }
+        .token-card .symbol { font-size: 22px; font-weight: 700; }
+        .token-card .price { font-size: 14px; color: #fff; }
+        .token-card .desc { font-size: 11px; color: #5A649A; }
+        .token-card .contract { font-size: 8px; font-family: 'Courier New', monospace; color: #FFD700; margin-top: 4px; word-break: break-all; }
+        .token-card.one { border-color: rgba(46,204,64,0.3); }
+        .token-card.two { border-color: rgba(0,51,153,0.3); }
+        .token-card.three { border-color: rgba(200,16,46,0.3); }
+        .token-card.four { border-color: rgba(220,38,38,0.5); }
+        .token-card.five { border-color: rgba(220,38,38,0.5); }
+        .conversion-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 20px 0; }
+        .conversion-card {
+            background: rgba(26,30,65,0.2); border: 1px solid #1E2350;
+            border-radius: 12px; padding: 16px; text-align: center; font-size: 14px;
+        }
+        .conversion-card .rate { font-size: 18px; font-weight: 700; color: #FCD34D; }
+        .contract-box {
+            background: rgba(220,38,38,0.05); border: 1px solid rgba(220,38,38,0.15);
+            border-radius: 12px; padding: 16px; margin: 20px 0;
+            text-align: center; font-size: 13px; color: #8A94C8; font-family: 'Courier New', monospace;
+        }
+        .contract-box .addr { color: #FFD700; }
+        .contract-box .copy-btn { background: transparent; border: none; color: #5A649A; cursor: pointer; font-size: 13px; font-family: 'Segoe UI', sans-serif; }
+        .contract-box .copy-btn:hover { color: #FFD700; }
+        .contract-box .solscan-link { color: #5A649A; text-decoration: none; font-size: 13px; font-family: 'Segoe UI', sans-serif; margin-left: 8px; }
+        .contract-box .solscan-link:hover { color: #fff; }
+        .back-link { display: inline-block; margin-top: 20px; color: #FCD34D; text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 800px) {
+            .token-row { grid-template-columns: 1fr 1fr; }
+            .conversion-grid { grid-template-columns: 1fr; }
+            .glass-card { padding: 24px; }
+            .contract-box { font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="glass-card">
+        <h1>One•Two•Three <span class="highlight">Ecosystem</span></h1>
+        <p class="sub">Five tokens, five currencies, five price levels — one wallet.</p>
+
+        <div class="token-row">
+            <div class="token-card one">
+                <div class="symbol">$ONE</div>
+                <div class="price">$0.01</div>
+                <div class="desc">US Entry</div>
+                <div class="contract">CGn6y...NYmad</div>
+                <a href="https://123tokens.github.io/one/" style="color:#2ECC40; font-size:12px;">→ Visit</a>
+            </div>
+            <div class="token-card two">
+                <div class="symbol">€TWO</div>
+                <div class="price">€0.05</div>
+                <div class="desc">EU Order</div>
+                <div class="contract">H5kj...j46d</div>
+                <a href="https://123tokens.github.io/two/" style="color:#4A8CFF; font-size:12px;">→ Visit</a>
+            </div>
+            <div class="token-card three">
+                <div class="symbol">£THREE</div>
+                <div class="price">£0.10</div>
+                <div class="desc">UK Payment</div>
+                <div class="contract">uM1k...CLNV</div>
+                <a href="https://123tokens.github.io/three/" style="color:#FF4D6D; font-size:12px;">→ Visit</a>
+            </div>
+            <div class="token-card four">
+                <div class="symbol">₣FOUR</div>
+                <div class="price">$0.22</div>
+                <div class="desc">CH Banker</div>
+                <div class="contract">SOON</div>
+                <a href="https://123tokens.github.io/four/" style="color:#DC2626; font-size:12px;">→ Visit</a>
+            </div>
+            <div class="token-card five">
+                <div class="symbol">¥FIVE</div>
+                <div class="price">$0.0137</div>
+                <div class="desc">CN Lucky</div>
+                <div class="contract">45fw...CHU6u</div>
+                <a href="index.html" style="color:#FCD34D; font-size:12px;">→ You are here</a>
+            </div>
+        </div>
+
+        <h3 style="margin: 24px 0 12px; color: #FCD34D;">Conversion Rates (CNY/USD ≈ 7.30)</h3>
+        <div class="conversion-grid">
+            <div class="conversion-card">
+                <span>¥FIVE → $ONE</span>
+                <div class="rate">1 ¥FIVE = 1.37 $ONE</div>
+            </div>
+            <div class="conversion-card">
+                <span>¥FIVE → €TWO</span>
+                <div class="rate">1 ¥FIVE = 0.24 €TWO</div>
+            </div>
+            <div class="conversion-card">
+                <span>¥FIVE → £THREE</span>
+                <div class="rate">1 ¥FIVE = 0.105 £THREE</div>
+            </div>
+        </div>
+
+        <div class="contract-box">
+            📜 ¥FIVE Contract: <span class="addr">45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</span>
+            <button onclick="navigator.clipboard.writeText('45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u')" class="copy-btn">📋 Copy</button>
+            <a href="https://solscan.io/token/45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="solscan-link">🔍 Solscan</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to ¥FIVE Home</a>
+    </div>
+</div>
+
+</body>
+</html>
