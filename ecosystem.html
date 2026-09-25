@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>¥FIVE — Ecosystem</title>
+    <link rel="icon" href="five_logo.png" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -20,6 +21,14 @@
         .glass-card h1 { font-size: 32px; margin-bottom: 8px; }
         .glass-card h1 .highlight { color: #FCD34D; }
         .glass-card .sub { color: #8A94C8; margin-bottom: 24px; }
+        .image-block {
+            max-width: 100%; margin: 30px auto; text-align: center;
+        }
+        .image-block img {
+            max-width: 100%; border-radius: 20px;
+            border: 1px solid #1E2350;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
         .token-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 20px 0; }
         .token-card {
             background: rgba(26,30,65,0.3); border: 1px solid #1E2350;
@@ -52,6 +61,7 @@
         .contract-box .solscan-link:hover { color: #fff; }
         .back-link { display: inline-block; margin-top: 20px; color: #FCD34D; text-decoration: none; font-weight: 500; }
         .back-link:hover { text-decoration: underline; }
+        .logo-img { height: 60px; width: auto; margin-bottom: 20px; border-radius: 50%; }
         @media (max-width: 800px) {
             .token-row { grid-template-columns: 1fr 1fr; }
             .conversion-grid { grid-template-columns: 1fr; }
@@ -64,8 +74,14 @@
 
 <div class="container">
     <div class="glass-card">
+        <img src="five_logo.png" alt="¥FIVE" class="logo-img" />
         <h1>One•Two•Three <span class="highlight">Ecosystem</span></h1>
         <p class="sub">Five tokens, five currencies, five price levels — one wallet.</p>
+
+        <!-- Карта экосистемы -->
+        <div class="image-block">
+            <img src="five_ecosystem_map.png" alt="One•Two•Three Ecosystem Map" />
+        </div>
 
         <div class="token-row">
             <div class="token-card one">
@@ -119,6 +135,11 @@
                 <span>¥FIVE → £THREE</span>
                 <div class="rate">1 ¥FIVE = 0.105 £THREE</div>
             </div>
+        </div>
+
+        <!-- Дракон -->
+        <div class="image-block" style="opacity: 0.4;">
+            <img src="five_chinese_dragon.jpg" alt="Chinese Dragon" />
         </div>
 
         <div class="contract-box">
