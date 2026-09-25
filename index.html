@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>¥FIVE — The Lucky Number Token | One•Two•Three</title>
-    <meta name="description" content="¥FIVE — Chinese Yuan pegged token on Solana. Launching at $0.0137. 10× to CNY parity." />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🀄</text></svg>" />
+    <meta name="description" content="¥FIVE — Chinese Yuan pegged token on Solana. $0.0137. 10× to CNY parity." />
+    <link rel="icon" href="five_logo.png" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -61,7 +61,7 @@
             flex-wrap: wrap; gap: 8px;
         }
         .logo { display: flex; align-items: center; gap: 8px; }
-        .logo img { height: 36px; width: auto; }
+        .logo img { height: 40px; width: auto; border-radius: 50%; }
         .logo-text { font-size: 20px; font-weight: 700; color: #fff; }
         .logo-badge {
             font-size: 9px; background: #DC2626; color: #fff;
@@ -119,9 +119,19 @@
         .hero {
             padding: 20px 0 40px; position: relative; z-index: 1;
             min-height: 70vh; display: flex; align-items: center;
-            background: radial-gradient(ellipse at 20% 50%, rgba(220,38,38,0.08) 0%, transparent 70%);
+            background-image: url('five_hero_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        .hero-inner { display: flex; align-items: center; gap: 40px; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(10,14,39,0.9) 0%, rgba(220,38,38,0.3) 100%);
+            z-index: -1;
+        }
+        .hero-inner { display: flex; align-items: center; gap: 40px; position: relative; z-index: 1; }
         .hero-content { flex: 1; }
         .hero-tag {
             display: inline-block; background: rgba(220,38,38,0.15);
@@ -136,15 +146,15 @@
             background-clip: text;
         }
         .hero h1 .highlight { color: #FCD34D; -webkit-text-fill-color: #FCD34D; }
-        .hero p { font-size: 17px; color: #8A94C8; max-width: 500px; margin-bottom: 20px; }
+        .hero p { font-size: 17px; color: #E0E6FF; max-width: 500px; margin-bottom: 20px; }
         .hero-stats { display: flex; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
         .stat-number { display: block; font-size: 24px; font-weight: 700; color: #fff; }
-        .stat-label { font-size: 12px; color: #5A649A; }
+        .stat-label { font-size: 12px; color: #8A94C8; }
         .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
         .contract-hero {
             margin-top: 16px; padding: 8px 16px;
-            background: rgba(26,30,65,0.4); border-radius: 12px;
+            background: rgba(26,30,65,0.6); border-radius: 12px;
             border: 1px solid #1E2350;
             display: inline-flex; align-items: center; gap: 10px;
             flex-wrap: wrap; font-size: 12px;
@@ -165,24 +175,42 @@
         }
         .contract-hero .solscan-link:hover { color: #fff; }
 
-        .hero-visual { flex: 0 0 180px; }
-        .coin-display { position: relative; width: 180px; height: 180px; }
-        .coin-circle {
-            width: 140px; height: 140px; border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #FCD34D, #DC2626);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            box-shadow: 0 0 60px rgba(220,38,38,0.3); position: relative; z-index: 2;
+        .hero-visual { flex: 0 0 220px; text-align: center; }
+        .hero-coin {
+            width: 220px; height: 220px; border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 80px rgba(220,38,38,0.5), 0 0 120px rgba(252,211,77,0.3);
+            animation: floatCoin 4s ease-in-out infinite;
         }
-        .coin-symbol { font-size: 32px; font-weight: 700; color: #fff; }
-        .coin-number { font-size: 42px; font-weight: 900; color: #fff; line-height: 1; }
-        .coin-label { font-size: 12px; color: rgba(255,255,255,0.8); letter-spacing: 2px; }
-        .coin-ring {
-            position: absolute; top: -10px; left: -10px;
-            width: 160px; height: 160px; border-radius: 50%;
-            border: 2px dashed rgba(220,38,38,0.3);
-            animation: spin 20s linear infinite;
+        @keyframes floatCoin {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* ===== ВИДЕО-БЛОК ===== */
+        .video-section {
+            padding: 60px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .video-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(220,38,38,0.3);
+            box-shadow: 0 20px 60px rgba(220,38,38,0.2);
+            transition: 0.3s;
+        }
+        .video-wrapper:hover {
+            box-shadow: 0 20px 80px rgba(220,38,38,0.4);
+            transform: translateY(-4px);
+            border-color: #FCD34D;
+        }
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+        }
 
         /* ===== БЫСТРАЯ ПОКУПКА ===== */
         .quick-buy {
@@ -232,8 +260,8 @@
         .buy-links-grid a .icon { display: block; font-size: 18px; margin-bottom: 2px; }
 
         /* ===== СЕКЦИИ ===== */
-        section { padding: 40px 0; position: relative; z-index: 1; }
-        .section-header { text-align: center; margin-bottom: 30px; }
+        section { padding: 60px 0; position: relative; z-index: 1; }
+        .section-header { text-align: center; margin-bottom: 40px; }
         .section-tag {
             display: inline-block; background: rgba(220,38,38,0.12);
             color: #FCD34D; padding: 4px 16px; border-radius: 20px;
@@ -267,6 +295,22 @@
         .rwa-card h4 { color: #fff; font-size: 15px; }
         .rwa-card p { color: #8A94C8; font-size: 12px; margin-top: 4px; }
 
+        .image-block {
+            max-width: 900px;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .image-block img {
+            max-width: 100%;
+            border-radius: 20px;
+            border: 1px solid #1E2350;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .image-block.dragon img {
+            opacity: 0.4;
+            filter: hue-rotate(-10deg);
+        }
+
         /* ===== ПОДВАЛ ===== */
         footer {
             background: #060920; padding: 30px 0 16px; position: relative; z-index: 1;
@@ -274,7 +318,7 @@
         }
         .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .footer-brand { display: flex; align-items: center; gap: 8px; }
-        .footer-brand img { height: 28px; width: auto; }
+        .footer-brand img { height: 32px; width: auto; border-radius: 50%; }
         .footer-brand .logo-text { font-size: 16px; }
         .footer-brand p { font-size: 11px; color: #5A649A; margin-top: 2px; }
         .footer-links { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -306,20 +350,19 @@
             .header-contract { font-size: 9px; padding: 2px 8px; justify-content: center; }
             nav { justify-content: center; gap: 6px; }
             nav a { font-size: 10px; }
-            .hero { padding: 10px 0 30px; }
+            .hero { padding: 10px 0 30px; background-attachment: scroll; }
             .hero-inner { flex-direction: column; text-align: center; }
             .hero h1 { font-size: 30px; }
             .hero-stats { justify-content: center; gap: 14px; }
             .hero-actions { justify-content: center; }
             .contract-hero { justify-content: center; font-size: 10px; }
-            .hero-visual { flex: 0 0 120px; }
-            .coin-circle { width: 120px; height: 120px; }
-            .coin-ring { width: 140px; height: 140px; }
+            .hero-visual { flex: 0 0 150px; }
+            .hero-coin { width: 150px; height: 150px; }
             .quick-buy { padding: 16px; }
             .buy-amount-grid { grid-template-columns: repeat(2, 1fr); }
             .buy-links-grid { grid-template-columns: 1fr 1fr; }
             .buy-custom-row { flex-direction: column; }
-            section { padding: 24px 0; }
+            section { padding: 30px 0; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-contract { font-size: 10px; flex-direction: column; gap: 4px; }
         }
@@ -335,7 +378,7 @@
 </head>
 <body>
 
-<!-- ===== БЕГУЩАЯ СТРОКА 1 (ВЕРХ) ===== -->
+<!-- ===== БЕГУЩАЯ СТРОКА 1 ===== -->
 <div class="ticker ticker-top">
     <div class="ticker-track">
         <span>🀄 <span class="highlight-ticker">¥FIVE</span> — The Lucky Number Token • Solana</span>
@@ -357,7 +400,7 @@
 <header>
     <div class="container header-inner">
         <div class="logo">
-            <img src="five_logo.png" alt="¥FIVE Logo" onerror="this.style.display='none'" />
+            <img src="five_logo.png" alt="¥FIVE Logo" />
             <span class="logo-text">FIVE</span>
             <span class="logo-badge">Lucky Number</span>
         </div>
@@ -408,10 +451,24 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="coin-display">
-                <div class="coin-circle"><span class="coin-symbol">¥</span><span class="coin-number">5</span><span class="coin-label">FIVE</span></div>
-                <div class="coin-ring"></div>
-            </div>
+            <img src="five_coin.png" alt="¥FIVE Coin" class="hero-coin" />
+        </div>
+    </div>
+</section>
+
+<!-- ===== ВИДЕО-БЛОК ===== -->
+<section class="video-section" id="promo-video">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Watch</span>
+            <h2>How to Buy <span class="highlight">¥FIVE</span></h2>
+            <p>OpenSea, Jupiter, and Meteora — three ways to get ¥FIVE.</p>
+        </div>
+        <div class="video-wrapper">
+            <video controls autoplay muted loop playsinline poster="five_coin.png">
+                <source src="five_promo_video.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
         </div>
     </div>
 </section>
@@ -461,6 +518,11 @@
             <div class="about-card glass-card"><div class="about-icon">🔒</div><h3>Fixed Supply</h3><p>500B supply. Mint Authority disabled.</p></div>
             <div class="about-card glass-card"><div class="about-icon">🌏</div><h3>Asian Market</h3><p>Gateway to China, Japan, Korea, and Southeast Asia.</p></div>
         </div>
+
+        <!-- Диаграмма Tokenomics -->
+        <div class="image-block">
+            <img src="five_chart.jpg" alt="¥FIVE Tokenomics Chart" />
+        </div>
     </div>
 </section>
 
@@ -471,19 +533,31 @@
             <span class="section-tag">RWA • FRS • DeFi</span>
             <h2>Asian <span class="highlight">Tokenization</span></h2>
         </div>
+
+        <!-- RWA диаграмма -->
+        <div class="image-block">
+            <img src="five_rwa_diagram.png" alt="¥FIVE RWA Diagram" />
+        </div>
+
         <div class="rwa-grid">
             <div class="rwa-card glass-card"><div class="rwa-icon">🏢</div><h4>Asian Real Estate</h4><p>Tokenize property in Shanghai, Tokyo, Seoul.</p></div>
             <div class="rwa-card glass-card"><div class="rwa-icon">📈</div><h4>FRS for Yuan</h4><p>Cross-currency pricing CNY/USD/EUR/GBP.</p></div>
             <div class="rwa-card glass-card"><div class="rwa-icon">🔄</div><h4>DeFi Asian Pools</h4><p>Lending, yield farming in yuan-stablecoins.</p></div>
             <div class="rwa-card glass-card"><div class="rwa-icon">🏦</div><h4>Digital Yuan Integration</h4><p>Bridge to China's CBDC (e-CNY).</p></div>
         </div>
+
+        <!-- Дракон -->
+        <div class="image-block dragon">
+            <img src="five_chinese_dragon.jpg" alt="Chinese Dragon" />
+        </div>
+
         <div style="text-align:center; margin-top:16px;">
             <a href="fintech2.html" class="btn-secondary">Explore RWA & FRS →</a>
         </div>
     </div>
 </section>
 
-<!-- ===== БЕГУЩАЯ СТРОКА 2 (НИЗ) ===== -->
+<!-- ===== БЕГУЩАЯ СТРОКА 2 ===== -->
 <div class="ticker ticker-bottom">
     <div class="ticker-track">
         <span>💰 <span class="highlight-ticker">¥FIVE = $0.0137</span> • Lucky Number Token</span>
@@ -507,7 +581,7 @@
 <footer>
     <div class="container footer-inner">
         <div class="footer-brand">
-            <img src="five_logo.png" alt="¥FIVE" onerror="this.style.display='none'" />
+            <img src="five_logo.png" alt="¥FIVE" />
             <span class="logo-text">FIVE</span>
             <p>Lucky Number Token of One•Two•Three</p>
         </div>
