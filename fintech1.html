@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>¥FIVE — Fintech Use Cases</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🀄</text></svg>" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0A0E27; color: #E0E6FF;
+            line-height: 1.6; padding-top: 80px; padding-bottom: 60px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(10, 14, 39, 0.92); backdrop-filter: blur(12px);
+            z-index: 100; border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            padding: 10px 0;
+        }
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 10px;
+        }
+        .logo { display: flex; align-items: center; gap: 8px; }
+        .logo img { height: 32px; width: auto; }
+        .logo-text { font-size: 20px; font-weight: 700; color: #fff; }
+        nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        nav a { color: #8A94C8; text-decoration: none; font-size: 12px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #FCD34D; }
+        nav a.active { color: #FCD34D; border-bottom: 2px solid #FCD34D; }
+        .btn-primary {
+            background: #DC2626; color: #fff; padding: 6px 18px;
+            border-radius: 30px; font-weight: 600; text-decoration: none;
+            transition: 0.3s; display: inline-block; font-size: 13px;
+        }
+        .btn-primary:hover { background: #B91C1C; transform: scale(1.02); }
+
+        section { padding: 30px 0; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-tag {
+            display: inline-block; background: rgba(220,38,38,0.12);
+            color: #FCD34D; padding: 4px 16px; border-radius: 20px;
+            font-size: 12px; font-weight: 600; text-transform: uppercase;
+        }
+        .section-header h1 { font-size: 34px; font-weight: 700; margin: 8px 0; }
+        .section-header h1 .highlight { color: #FCD34D; }
+        .section-header p { color: #8A94C8; max-width: 600px; margin: 0 auto; }
+
+        .categories {
+            display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+            margin-bottom: 24px;
+        }
+        .cat-btn {
+            background: rgba(26,30,65,0.5); border: 1px solid #1E2350;
+            color: #8A94C8; padding: 6px 18px; border-radius: 30px;
+            font-size: 13px; cursor: pointer; transition: 0.3s;
+        }
+        .cat-btn.active, .cat-btn:hover {
+            background: #DC2626; color: #fff; border-color: #DC2626;
+        }
+
+        .fintech-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 14px; margin-bottom: 30px;
+        }
+        .fintech-card {
+            background: rgba(26,30,65,0.4); border: 1px solid #1E2350;
+            border-radius: 12px; padding: 16px 16px; transition: 0.3s; cursor: default;
+        }
+        .fintech-card:hover { border-color: #FCD34D; background: rgba(220,38,38,0.05); }
+        .fintech-card .fc-icon { font-size: 24px; }
+        .fintech-card .fc-title { font-size: 14px; font-weight: 600; color: #fff; margin-top: 6px; }
+        .fintech-card .fc-cat {
+            font-size: 10px; text-transform: uppercase; color: #5A649A;
+            letter-spacing: 0.5px; margin-top: 4px;
+        }
+
+        .contract-box {
+            background: rgba(220,38,38,0.05); border: 1px solid rgba(220,38,38,0.15);
+            border-radius: 12px; padding: 14px 16px; margin: 20px 0;
+            text-align: center; font-size: 13px; color: #8A94C8; font-family: 'Courier New', monospace;
+        }
+        .contract-box .addr { color: #FFD700; }
+        .contract-box .copy-btn { background: transparent; border: none; color: #5A649A; cursor: pointer; font-size: 13px; font-family: 'Segoe UI', sans-serif; }
+        .contract-box .copy-btn:hover { color: #FFD700; }
+        .contract-box .solscan-link { color: #5A649A; text-decoration: none; font-size: 13px; font-family: 'Segoe UI', sans-serif; margin-left: 8px; }
+        .contract-box .solscan-link:hover { color: #fff; }
+
+        .back-link { display: inline-block; margin-top: 16px; color: #FCD34D; text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+
+        footer {
+            background: #060920; padding: 20px 0 16px; text-align: center;
+            border-top: 1px solid #1E2350; margin-top: 20px;
+        }
+        footer p { color: #3A406A; font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; align-items: stretch; }
+            nav { justify-content: center; gap: 6px; }
+            nav a { font-size: 10px; }
+            .section-header h1 { font-size: 26px; }
+            .fintech-grid { grid-template-columns: 1fr 1fr; }
+            .contract-box { font-size: 11px; }
+        }
+        @media (max-width: 480px) {
+            .fintech-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="five_logo.png" alt="¥FIVE" onerror="this.style.display='none'" />
+            <span class="logo-text">¥FIVE</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="fintech1.html" class="active">Use Cases</a>
+            <a href="fintech2.html">RWA • FRS</a>
+            <a href="trade.html">Trade</a>
+            <a href="ecosystem.html">Ecosystem</a>
+            <a href="https://123tokens.github.io/one/">$ONE</a>
+            <a href="https://123tokens.github.io/two/">€TWO</a>
+            <a href="https://123tokens.github.io/three/">£THREE</a>
+            <a href="https://123tokens.github.io/four/">₣FOUR</a>
+        </nav>
+        <a href="buy.html" class="btn-primary">Buy ¥FIVE</a>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Fintech</span>
+            <h1>100+ <span class="highlight">Use Cases</span> for ¥FIVE</h1>
+            <p>From WeChat Pay to digital yuan — ¥FIVE is built for the future of Asian finance.</p>
+        </div>
+
+        <div class="categories">
+            <button class="cat-btn active" data-cat="all">All</button>
+            <button class="cat-btn" data-cat="payments">Payments</button>
+            <button class="cat-btn" data-cat="ai">AI & Tech</button>
+            <button class="cat-btn" data-cat="social">Social</button>
+            <button class="cat-btn" data-cat="gaming">Gaming</button>
+            <button class="cat-btn" data-cat="business">Business</button>
+            <button class="cat-btn" data-cat="rwa">RWA & DeFi</button>
+        </div>
+
+        <div class="fintech-grid" id="fintechGrid"></div>
+
+        <div class="contract-box">
+            📜 ¥FIVE Contract: <span class="addr">45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</span>
+            <button onclick="navigator.clipboard.writeText('45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u')" class="copy-btn">📋 Copy</button>
+            <a href="https://solscan.io/token/45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="solscan-link">🔍 Solscan</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to ¥FIVE Home</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 One•Two•Three. Built on Solana. | Contract: 45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</p>
+    </div>
+</footer>
+
+<script>
+    const ideas = [
+        // ===== Китайские платёжные системы =====
+        { icon: '💚', title: 'WeChat Pay integration', cat: 'payments' },
+        { icon: '💙', title: 'Alipay micro-payments', cat: 'payments' },
+        { icon: '🏦', title: 'Digital Yuan (e-CNY) bridge', cat: 'payments' },
+        { icon: '💳', title: 'UnionPay card payments', cat: 'payments' },
+        { icon: '📱', title: 'Mobile top-ups in China', cat: 'payments' },
+        // ===== Азиатский рынок =====
+        { icon: '🀄', title: 'Mahjong game credits', cat: 'gaming' },
+        { icon: '🐉', title: 'Chinese New Year gifts', cat: 'social' },
+        { icon: '🧧', title: 'Red envelope (hongbao) digital', cat: 'social' },
+        { icon: '🏮', title: 'Festival donations', cat: 'social' },
+        { icon: '🍜', title: 'Food delivery (Meituan)', cat: 'payments' },
+        // ===== RWA =====
+        { icon: '🏢', title: 'Shanghai real estate', cat: 'rwa' },
+        { icon: '🏗️', title: 'Tokyo property tokenization', cat: 'rwa' },
+        { icon: '🏬', title: 'Seoul commercial REITs', cat: 'rwa' },
+        { icon: '💎', title: 'Asian commodities', cat: 'rwa' },
+        { icon: '📜', title: 'Chinese bonds', cat: 'rwa' },
+        // ===== AI & Tech =====
+        { icon: '🤖', title: 'AI API per-request (Baidu, Alibaba)', cat: 'ai' },
+        { icon: '🧠', title: 'Neural network inference costs', cat: 'ai' },
+        { icon: '📡', title: 'IoT device data payments', cat: 'ai' },
+        { icon: '🛰️', title: 'Satellite data subscriptions', cat: 'ai' },
+        { icon: '🔬', title: 'Research data access', cat: 'ai' },
+        // ===== Социальное =====
+        { icon: '🎁', title: 'Digital gifts & tips', cat: 'social' },
+        { icon: '🗳️', title: 'DAO voting with ¥FIVE', cat: 'social' },
+        { icon: '🌱', title: 'Green project funding', cat: 'social' },
+        { icon: '🏥', title: 'Healthcare micro-donations', cat: 'social' },
+        { icon: '🐾', title: 'Pet adoption fees', cat: 'social' },
+        // ===== Игры =====
+        { icon: '🎮', title: 'In-game premium currency', cat: 'gaming' },
+        { icon: '🏆', title: 'Esports tournament fees', cat: 'gaming' },
+        { icon: '🎲', title: 'Online poker entry', cat: 'gaming' },
+        { icon: '⚔️', title: 'MMORPG item trading', cat: 'gaming' },
+        { icon: '🃏', title: 'Collectible card game packs', cat: 'gaming' },
+        // ===== Бизнес =====
+        { icon: '📦', title: 'Logistics micro-payments', cat: 'business' },
+        { icon: '🚚', title: 'Supply chain payments', cat: 'business' },
+        { icon: '🧾', title: 'Invoice factoring', cat: 'business' },
+        { icon: '📊', title: 'Analytics dashboard access', cat: 'business' },
+        { icon: '📞', title: 'Customer support ticketing', cat: 'business' },
+        // ===== DeFi =====
+        { icon: '🔄', title: 'Stablecoin arbitrage', cat: 'rwa' },
+        { icon: '📈', title: 'Lending & borrowing', cat: 'rwa' },
+        { icon: '💰', title: 'Yield farming with ¥FIVE', cat: 'rwa' },
+        { icon: '🔗', title: 'Cross-chain bridging', cat: 'rwa' },
+        { icon: '🏦', title: 'DeFi savings accounts', cat: 'rwa' },
+    ];
+
+    const grid = document.getElementById('fintechGrid');
+
+    function render(category = 'all') {
+        grid.innerHTML = '';
+        const filtered = category === 'all' ? ideas : ideas.filter(i => i.cat === category);
+        filtered.forEach(idea => {
+            const card = document.createElement('div');
+            card.className = 'fintech-card';
+            card.innerHTML = `
+                <div class="fc-icon">${idea.icon}</div>
+                <div class="fc-title">${idea.title}</div>
+                <div class="fc-cat">${idea.cat}</div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    render('all');
+
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            render(this.dataset.cat);
+        });
+    });
+</script>
+</body>
+</html>
