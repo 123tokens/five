@@ -21,9 +21,7 @@
         .glass-card h1 { font-size: 32px; margin-bottom: 8px; }
         .glass-card h1 .highlight { color: #FCD34D; }
         .glass-card .sub { color: #8A94C8; margin-bottom: 24px; }
-        .image-block {
-            max-width: 100%; margin: 30px auto; text-align: center;
-        }
+        .image-block { max-width: 100%; margin: 30px auto; text-align: center; }
         .image-block img {
             max-width: 100%; border-radius: 20px;
             border: 1px solid #1E2350;
@@ -59,6 +57,15 @@
         .contract-box .copy-btn:hover { color: #FFD700; }
         .contract-box .solscan-link { color: #5A649A; text-decoration: none; font-size: 13px; font-family: 'Segoe UI', sans-serif; margin-left: 8px; }
         .contract-box .solscan-link:hover { color: #fff; }
+        .counter-box {
+            text-align: center; padding: 16px;
+            background: rgba(220,38,38,0.05); border-radius: 12px;
+            margin: 20px 0; font-size: 14px; color: #8A94C8;
+            font-family: 'Courier New', monospace;
+        }
+        .counter-box .counter-visitors { color: #FCD34D; font-weight: 600; }
+        .counter-box .counter-holders { color: #DC2626; font-weight: 600; }
+        .counter-box .counter-clients { color: #006C35; font-weight: 600; }
         .back-link { display: inline-block; margin-top: 20px; color: #FCD34D; text-decoration: none; font-weight: 500; }
         .back-link:hover { text-decoration: underline; }
         .logo-img { height: 60px; width: auto; margin-bottom: 20px; border-radius: 50%; }
@@ -78,7 +85,6 @@
         <h1>One•Two•Three <span class="highlight">Ecosystem</span></h1>
         <p class="sub">Five tokens, five currencies, five price levels — one wallet.</p>
 
-        <!-- Карта экосистемы -->
         <div class="image-block">
             <img src="five_ecosystem_map.png" alt="One•Two•Three Ecosystem Map" />
         </div>
@@ -137,9 +143,16 @@
             </div>
         </div>
 
-        <!-- Дракон -->
         <div class="image-block" style="opacity: 0.4;">
             <img src="five_chinese_dragon.jpg" alt="Chinese Dragon" />
+        </div>
+
+        <div class="counter-box">
+            👥 <span class="counter-visitors">137,000</span> visitors
+            &nbsp;·&nbsp;
+            💎 <span class="counter-holders">0</span> holders
+            &nbsp;·&nbsp;
+            🤝 <span class="counter-clients">0</span> clients
         </div>
 
         <div class="contract-box">
@@ -151,6 +164,8 @@
         <a href="index.html" class="back-link">← Back to ¥FIVE Home</a>
     </div>
 </div>
+
+<script src="counter.js"></script>
 
 </body>
 </html>
