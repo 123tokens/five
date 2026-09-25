@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>¥FIVE — Trade & Swap</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0A0E27; color: #E0E6FF;
+            line-height: 1.6; padding-top: 80px; padding-bottom: 60px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .glass-card {
+            background: rgba(26, 30, 65, 0.6); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 24px;
+            padding: 40px; margin-bottom: 24px;
+        }
+        .glass-card h1 { font-size: 32px; margin-bottom: 8px; }
+        .glass-card h1 .highlight { color: #FCD34D; }
+        .glass-card .sub { color: #8A94C8; margin-bottom: 24px; }
+        .swap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .swap-card {
+            background: rgba(26,30,65,0.3); border: 1px solid #1E2350;
+            border-radius: 16px; padding: 20px 12px; text-align: center;
+            transition: 0.3s; text-decoration: none; color: #E0E6FF;
+        }
+        .swap-card:hover { border-color: #FCD34D; transform: translateY(-4px); }
+        .swap-card .icon { font-size: 28px; display: block; margin-bottom: 6px; }
+        .swap-card .name { font-weight: 600; font-size: 15px; }
+        .swap-card .desc { font-size: 12px; color: #5A649A; }
+        .pair-badge { display: inline-block; background: rgba(220,38,38,0.1); color: #FCD34D; padding: 2px 12px; border-radius: 12px; font-size: 11px; margin-top: 6px; }
+        .contract-box {
+            background: rgba(220,38,38,0.05); border: 1px solid rgba(220,38,38,0.15);
+            border-radius: 12px; padding: 16px; margin: 20px 0;
+            text-align: center; font-size: 13px; color: #8A94C8; font-family: 'Courier New', monospace;
+        }
+        .contract-box .addr { color: #FFD700; }
+        .contract-box .copy-btn { background: transparent; border: none; color: #5A649A; cursor: pointer; font-size: 13px; font-family: 'Segoe UI', sans-serif; }
+        .contract-box .copy-btn:hover { color: #FFD700; }
+        .contract-box .solscan-link { color: #5A649A; text-decoration: none; font-size: 13px; font-family: 'Segoe UI', sans-serif; margin-left: 8px; }
+        .contract-box .solscan-link:hover { color: #fff; }
+        .back-link { display: inline-block; margin-top: 20px; color: #FCD34D; text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 800px) { .swap-grid { grid-template-columns: 1fr 1fr; } .glass-card { padding: 24px; } }
+        @media (max-width: 450px) { .swap-grid { grid-template-columns: 1fr; } .contract-box { font-size: 11px; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="glass-card">
+        <h1>Trade & <span class="highlight">Swap</span> ¥FIVE</h1>
+        <p class="sub">10+ DEXs and aggregators for the best price</p>
+
+        <div class="swap-grid">
+            <a href="https://jup.ag/swap/SOL-45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="swap-card">
+                <span class="icon">🔄</span>
+                <span class="name">Jupiter</span>
+                <span class="desc">Best price aggregator</span>
+                <span class="pair-badge">SOL → ¥FIVE</span>
+            </a>
+            <a href="https://www.geckoterminal.com/solana/pools/6tHA3RcVgtuN2AgugoMtMj8R63KXhgkTNsZefifPPZMj" target="_blank" class="swap-card">
+                <span class="icon">🌊</span>
+                <span class="name">Meteora</span>
+                <span class="desc">¥FIVE/USDT pool</span>
+                <span class="pair-badge">USDT → ¥FIVE</span>
+            </a>
+            <a href="https://dexscreener.com/solana/6tHA3RcVgtuN2AgugoMtMj8R63KXhgkTNsZefifPPZMj" target="_blank" class="swap-card">
+                <span class="icon">📊</span>
+                <span class="name">DexScreener</span>
+                <span class="desc">Live chart & analytics</span>
+                <span class="pair-badge">Chart</span>
+            </a>
+            <a href="https://app.uniswap.org/swap?outputCurrency=45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="swap-card">
+                <span class="icon">🦄</span>
+                <span class="name">Uniswap</span>
+                <span class="desc">Ethereum • Wormhole</span>
+                <span class="pair-badge">ETH → ¥FIVE</span>
+            </a>
+            <a href="https://opensea.io/token/solana/45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="swap-card">
+                <span class="icon">🖼️</span>
+                <span class="name">OpenSea</span>
+                <span class="desc">Direct purchase</span>
+                <span class="pair-badge">Card → ¥FIVE</span>
+            </a>
+            <a href="https://app.raydium.io/swap/?outputMint=45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="swap-card">
+                <span class="icon">☀️</span>
+                <span class="name">Raydium</span>
+                <span class="desc">Solana DEX</span>
+                <span class="pair-badge">SOL → ¥FIVE</span>
+            </a>
+            <a href="https://orca.so/swap?inputMint=So11111111111111111111111111111111111111112&outputMint=45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="swap-card">
+                <span class="icon">🐋</span>
+                <span class="name">Orca</span>
+                <span class="desc">Concentrated liquidity</span>
+                <span class="pair-badge">SOL → ¥FIVE</span>
+            </a>
+            <a href="https://www.binance.com/en/convert" target="_blank" class="swap-card">
+                <span class="icon">🟡</span>
+                <span class="name">Binance Convert</span>
+                <span class="desc">Fiat → ¥FIVE</span>
+                <span class="pair-badge">CNY → ¥FIVE</span>
+            </a>
+            <a href="https://www.okx.com/" target="_blank" class="swap-card">
+                <span class="icon">🔵</span>
+                <span class="name">OKX</span>
+                <span class="desc">Asian exchange</span>
+                <span class="pair-badge">CNY → ¥FIVE</span>
+            </a>
+            <a href="https://www.huobi.com/" target="_blank" class="swap-card">
+                <span class="icon">🔴</span>
+                <span class="name">Huobi</span>
+                <span class="desc">Asian exchange</span>
+                <span class="pair-badge">CNY → ¥FIVE</span>
+            </a>
+            <a href="https://1inch.io/" target="_blank" class="swap-card">
+                <span class="icon">🔄</span>
+                <span class="name">1inch</span>
+                <span class="desc">Multi-chain aggregator</span>
+                <span class="pair-badge">Any → ¥FIVE</span>
+            </a>
+            <a href="fintech1.html" class="swap-card" style="border-color: #FCD34D; grid-column: span 4; background: rgba(220,38,38,0.05);">
+                <span class="icon">💡</span>
+                <span class="name">100+ Fintech Use Cases →</span>
+                <span class="desc">Explore all the ways to use ¥FIVE</span>
+            </a>
+        </div>
+
+        <div class="contract-box">
+            📜 Contract: <span class="addr">45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</span>
+            <button onclick="navigator.clipboard.writeText('45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u')" class="copy-btn">📋 Copy</button>
+            <a href="https://solscan.io/token/45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="solscan-link">🔍 Solscan</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to ¥FIVE Home</a>
+    </div>
+</div>
+
+</body>
+</html>
