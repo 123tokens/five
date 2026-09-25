@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>¥FIVE — RWA • FRS • DeFi</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🀄</text></svg>" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0A0E27; color: #E0E6FF;
+            line-height: 1.6; padding-top: 80px; padding-bottom: 60px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(10,14,39,0.92); backdrop-filter: blur(12px);
+            z-index: 100; border-bottom: 1px solid rgba(220,38,38,0.2);
+            padding: 10px 0;
+        }
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 10px;
+        }
+        .logo { display: flex; align-items: center; gap: 8px; }
+        .logo img { height: 32px; width: auto; }
+        .logo-text { font-size: 20px; font-weight: 700; color: #fff; }
+        nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        nav a { color: #8A94C8; text-decoration: none; font-size: 12px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #FCD34D; }
+        nav a.active { color: #FCD34D; border-bottom: 2px solid #FCD34D; }
+
+        .btn-primary {
+            background: #DC2626; color: #fff; padding: 6px 18px;
+            border-radius: 30px; font-weight: 600; text-decoration: none;
+            transition: 0.3s; display: inline-block; font-size: 13px;
+        }
+        .btn-primary:hover { background: #B91C1C; transform: scale(1.02); }
+        .btn-secondary {
+            background: transparent; color: #FCD34D; padding: 6px 18px;
+            border-radius: 30px; font-weight: 600; text-decoration: none;
+            border: 1px solid #FCD34D; transition: 0.3s; display: inline-block;
+            font-size: 13px;
+        }
+        .btn-secondary:hover { background: #FCD34D; color: #0A0E27; }
+
+        section { padding: 30px 0; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-tag {
+            display: inline-block; background: rgba(220,38,38,0.12);
+            color: #FCD34D; padding: 4px 16px; border-radius: 20px;
+            font-size: 12px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-header h1 { font-size: 34px; font-weight: 700; margin: 8px 0; }
+        .section-header h1 .highlight { color: #FCD34D; }
+        .section-header p { color: #8A94C8; max-width: 600px; margin: 0 auto; }
+
+        .rwa-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px; margin-bottom: 24px;
+        }
+        .rwa-card {
+            background: rgba(26,30,65,0.4); border: 1px solid #1E2350;
+            border-radius: 16px; padding: 24px 22px; transition: 0.3s;
+        }
+        .rwa-card:hover { border-color: #FCD34D; transform: translateY(-4px); }
+        .rwa-card .rwa-icon { font-size: 38px; margin-bottom: 10px; }
+        .rwa-card h3 { color: #fff; font-size: 19px; margin-bottom: 6px; }
+        .rwa-card p { color: #8A94C8; font-size: 14px; }
+        .feature-badge {
+            display: inline-block; background: rgba(220,38,38,0.15);
+            color: #FCD34D; padding: 2px 12px; border-radius: 20px;
+            font-size: 11px; font-weight: 600; text-transform: uppercase;
+            margin-top: 8px; margin-right: 4px;
+        }
+
+        .contract-box {
+            background: rgba(220,38,38,0.05); border: 1px solid rgba(220,38,38,0.15);
+            border-radius: 12px; padding: 14px 16px; margin: 20px 0;
+            text-align: center; font-size: 13px; color: #8A94C8; font-family: 'Courier New', monospace;
+        }
+        .contract-box .addr { color: #FFD700; }
+        .contract-box .copy-btn { background: transparent; border: none; color: #5A649A; cursor: pointer; font-size: 13px; font-family: 'Segoe UI', sans-serif; }
+        .contract-box .copy-btn:hover { color: #FFD700; }
+        .contract-box .solscan-link { color: #5A649A; text-decoration: none; font-size: 13px; font-family: 'Segoe UI', sans-serif; margin-left: 8px; }
+        .contract-box .solscan-link:hover { color: #fff; }
+
+        .back-link { display: inline-block; margin-top: 16px; color: #FCD34D; text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+
+        footer {
+            background: #060920; padding: 20px 0 16px; text-align: center;
+            border-top: 1px solid #1E2350; margin-top: 20px;
+        }
+        footer p { color: #3A406A; font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; align-items: stretch; }
+            nav { justify-content: center; gap: 6px; }
+            nav a { font-size: 10px; }
+            .section-header h1 { font-size: 26px; }
+            .contract-box { font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="five_logo.png" alt="¥FIVE" onerror="this.style.display='none'" />
+            <span class="logo-text">¥FIVE</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="fintech1.html">Use Cases</a>
+            <a href="fintech2.html" class="active">RWA • FRS</a>
+            <a href="trade.html">Trade</a>
+            <a href="ecosystem.html">Ecosystem</a>
+            <a href="https://123tokens.github.io/one/">$ONE</a>
+            <a href="https://123tokens.github.io/two/">€TWO</a>
+            <a href="https://123tokens.github.io/three/">£THREE</a>
+            <a href="https://123tokens.github.io/four/">₣FOUR</a>
+        </nav>
+        <a href="buy.html" class="btn-primary">Buy ¥FIVE</a>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">RWA • FRS • DeFi</span>
+            <h1>Asian <span class="highlight">Tokenization</span></h1>
+            <p>¥FIVE is the gateway to institutional-grade DeFi, RWA tokenization, and the Financial Reference System for CNY.</p>
+        </div>
+
+        <div class="rwa-grid">
+            <div class="rwa-card">
+                <div class="rwa-icon">🏢</div>
+                <h3>Asian Real Estate</h3>
+                <p>Tokenize residential and commercial properties across Shanghai, Tokyo, Seoul, and Singapore.</p>
+                <span class="feature-badge">Shanghai</span>
+                <span class="feature-badge">Tokyo</span>
+                <span class="feature-badge">Seoul</span>
+            </div>
+
+            <div class="rwa-card">
+                <div class="rwa-icon">🏦</div>
+                <h3>Digital Yuan Bridge</h3>
+                <p>Integration with China's CBDC (e-CNY). Cross-border payments between e-CNY and crypto.</p>
+                <span class="feature-badge">e-CNY</span>
+                <span class="feature-badge">CBDC</span>
+            </div>
+
+            <div class="rwa-card">
+                <div class="rwa-icon">📈</div>
+                <h3>FRS for CNY</h3>
+                <p>Algorithmic framework providing real-time pricing, risk assessment, and cross-asset correlation for CNY/USD/EUR/GBP.</p>
+                <span class="feature-badge">Pricing</span>
+                <span class="feature-badge">Risk</span>
+            </div>
+
+            <div class="rwa-card">
+                <div class="rwa-icon">🔄</div>
+                <h3>DeFi Asian Pools</h3>
+                <p>Lending, borrowing, yield farming, and liquidity provisioning with ¥FIVE. Deep pools on Meteora and Jupiter.</p>
+                <span class="feature-badge">Lending</span>
+                <span class="feature-badge">Yield</span>
+            </div>
+
+            <div class="rwa-card">
+                <div class="rwa-icon">📱</div>
+                <h3>WeChat Pay & Alipay</h3>
+                <p>Bridge ¥FIVE to WeChat Pay and Alipay for seamless payments across Asia. Coming soon.</p>
+                <span class="feature-badge">WeChat</span>
+                <span class="feature-badge">Alipay</span>
+            </div>
+
+            <div class="rwa-card">
+                <div class="rwa-icon">🌍</div>
+                <h3>Multi-Currency Settlement</h3>
+                <p>$ONE, €TWO, £THREE, ₣FOUR, ¥FIVE — a complete global currency basket for cross-border settlements.</p>
+                <span class="feature-badge">USD</span>
+                <span class="feature-badge">EUR</span>
+                <span class="feature-badge">GBP</span>
+                <span class="feature-badge">CHF</span>
+                <span class="feature-badge">CNY</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 16px;">
+            <a href="fintech1.html" class="btn-secondary">← Back to Use Cases</a>
+        </div>
+
+        <div class="contract-box">
+            📜 ¥FIVE Contract: <span class="addr">45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</span>
+            <button onclick="navigator.clipboard.writeText('45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u')" class="copy-btn">📋 Copy</button>
+            <a href="https://solscan.io/token/45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u" target="_blank" class="solscan-link">🔍 Solscan</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to ¥FIVE Home</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 One•Two•Three. Built on Solana. | Contract: 45fwvzyjUSnvd7NeEgSK5oL1wycMzuS5CTtWRFhCHU6u</p>
+    </div>
+</footer>
+
+</body>
+</html>
